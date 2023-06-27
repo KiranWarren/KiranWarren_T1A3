@@ -41,8 +41,24 @@ def import_file():
         file_num = int(input('Sorry, please try again or press 0 to return to the main menu: '))
         if file_num == 0:
             return
-        
-    # Return the file that the user has specified.
-    return os.path.join(inputs_folder_path, file_list[file_num - 1])
+
+    # Import the file into a usable format
+    with open(os.path.join(inputs_folder_path, file_list[file_num - 1])) as text_file:
+        text_file_contents = text_file.read()
+
+    # Split the text file up into a usable list.
+    # Preserve lines/newlines from document using intermediate step
+    contents_lines = text_file_contents.splitlines(True)
+
+    # Split the contents_list up into individual words and newlines
+    # Return the words list as the output of this function
+    words = []
+    for i in range(0, len(contents_lines)):
+        words.extend(contents_lines[i].split())
+        if i != len(contents_lines) - 1:
+            words.extend('\n')
+    return words
+
+
     
 
