@@ -1,3 +1,9 @@
+# Import File Function
+#
+# Identifies the text files that are within the 'inputs' folder.
+# Requests the user choose one of these files to import.
+# Returns a list with all of the words and newlines from the text file.
+
 import os
 
 def import_file():
@@ -28,26 +34,22 @@ def import_file():
 
     # Ask the user which file they want to import.
     print('Which file would you like to choose? In the console, input the corresponding number of the file you want to import.')
-    print('Or press 0 to return to the main menu.')
+    print('Or press enter to return to the main menu.')
     print('')
     file_num = int(input('File number: '))
 
     # Exit back to the main menu if user inputs 0
-    if file_num == 0:
+    if file_num in range(1, len(file_list) + 1):
+        pass
+    else:
         return
-
-    # Ensure that the user has entered a number within the expected range.
-    while not file_num in range(1, len(file_list) + 1):
-        file_num = int(input('Sorry, please try again or press 0 to return to the main menu: '))
-        if file_num == 0:
-            return
 
     # Import the file into a usable format
     with open(os.path.join(inputs_folder_path, file_list[file_num - 1])) as text_file:
         text_file_contents = text_file.read()
 
     # Split the text file up into a usable list.
-    # Preserve lines/newlines from document using intermediate step
+    # Preserve newlines from document using intermediate step
     contents_lines = text_file_contents.splitlines(True)
 
     # Split the contents_list up into individual words and newlines

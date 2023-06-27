@@ -17,5 +17,21 @@ while True:
 
     # Run functions based on user selection.
     if task == 1:
+        replace()
+    if task == 2:
+        double_space()
+    if task == 3:
+        encrypt()
+    if task == 4:
+        decrypt()
+    if task == 5:
+        word_count()
+    if task == 6:
+        top_occurrences()
+    if task == 7:
+        occurrence()
+    else:
         break
+clear_terminal()
+print('')
 print('Application Closed')
