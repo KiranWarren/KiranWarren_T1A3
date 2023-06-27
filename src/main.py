@@ -13,25 +13,30 @@ while True:
     main_menu()
 
     # Request a selection from the user.
-    task = int(input('Enter selection: '))
+    # Handle empty string error, interpret as wanting to close application
+    try:
+        task = int(input('Enter selection: '))
+    except:
+        task = 0
 
     # Run functions based on user selection.
     if task == 1:
         replace()
-    if task == 2:
+    elif task == 2:
         double_space()
-    if task == 3:
+    elif task == 3:
         encrypt()
-    if task == 4:
+    elif task == 4:
         decrypt()
-    if task == 5:
+    elif task == 5:
         word_count()
-    if task == 6:
+    elif task == 6:
         top_occurrences()
-    if task == 7:
+    elif task == 7:
         occurrence()
     else:
         break
+
+# Close application
 clear_terminal()
-print('')
 print('Application Closed')

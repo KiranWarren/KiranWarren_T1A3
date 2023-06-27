@@ -33,10 +33,14 @@ def import_file():
     print('')
 
     # Ask the user which file they want to import.
+    # Handle empty string error, interpret as returning to main menu
     print('Which file would you like to choose? In the console, input the corresponding number of the file you want to import.')
     print('Or press enter to return to the main menu.')
     print('')
-    file_num = int(input('File number: '))
+    try:
+        file_num = int(input('File number: '))
+    except:
+        return
 
     # Exit back to the main menu if user inputs 0
     if file_num in range(1, len(file_list) + 1):
