@@ -2,7 +2,7 @@
 #
 # Identifies the text files that are within the 'inputs' folder.
 # Requests the user choose one of these files to import.
-# Returns a list with all of the words and newlines from the text file.
+# Returns a string containing the text file contents.
 
 import os
 
@@ -29,7 +29,7 @@ def import_file():
     # Show the user the available text files within the 'inputs' folder.
     print('Here are all the .txt files in the inputs folder:')
     for i in range(1, len(file_list) + 1):
-        print(f"{i}     {file_list[i - 1]}")
+        print(f"[{i}]   {file_list[i - 1]}")
     print('')
 
     # Ask the user which file they want to import.
@@ -50,21 +50,21 @@ def import_file():
 
     # Import the file into a usable format
     with open(os.path.join(inputs_folder_path, file_list[file_num - 1])) as text_file:
-        text_file_contents = text_file.read()
+        input_string = text_file.read()
 
+    # Return the imported string
+    return input_string
+
+def convert_string_to_list(input_string):
     # Split the text file up into a usable list.
     # Preserve newlines from document using intermediate step
-    contents_lines = text_file_contents.splitlines(True)
+    string_lines = input_string.splitlines(True)
 
     # Split the contents_list up into individual words and newlines
     # Return the words list as the output of this function
-    words = []
-    for i in range(0, len(contents_lines)):
-        words.extend(contents_lines[i].split())
-        if i != len(contents_lines) - 1:
-            words.extend('\n')
-    return words
-
-
-    
-
+    substring_list = []
+    for i in range(0, len(string_lines)):
+        substring_list.extend(string_lines[i].split())
+        if i != len(string_lines) - 1:
+            substring_list.extend('\n')
+    return substring_list
