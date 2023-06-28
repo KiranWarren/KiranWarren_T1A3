@@ -1,6 +1,7 @@
 # Double Space Function
 #
-# 
+# Takes a specified text file and double spaces all words.
+# Outputs a new file with a user-specified name into the 'outputs' folder
 
 from clear_terminal import *
 from import_file import *
