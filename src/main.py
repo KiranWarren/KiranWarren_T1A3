@@ -15,7 +15,7 @@ while True:
     # Request a selection from the user.
     # Handle empty string error, interpret as wanting to close application
     try:
-        task = int(input('Enter selection: '))
+        task = int(input("Enter selection: "))
     except:
         task = 0
 
@@ -39,4 +39,4 @@ while True:
 
 # Close application
 clear_terminal()
-print('Application Closed')
+print("Application Closed")
