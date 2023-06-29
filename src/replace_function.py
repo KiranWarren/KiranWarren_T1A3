@@ -7,6 +7,8 @@
 from import_file import *
 from export_file import *
 from clear_terminal import *
+import string
+
 
 def replace():
     # Clear Terminal and show function name
@@ -20,58 +22,64 @@ def replace():
     input_string = import_file()
     if input_string == None:
         return
-    
+
     # Convert the single string into a list of substrings
     substring_list = convert_string_to_list(input_string)
 
-    # Get string that needs to be replaced from user
-    # Add additional cases, e.g. words at the start or end of a sentence.
-    remove_list = []
-    remove_list.append(input('What word do you want to replace? '))
-    remove_list.append(remove_list[0] + '.')
-    remove_list.append(remove_list[0] + '?')
-    remove_list.append(remove_list[0] + '!')
-    remove_list.append(remove_list[0] + '"')
-    remove_list.append(remove_list[0] + '."')
-    remove_list.append(remove_list[0].capitalize())
-    remove_list.append('"' + remove_list[0].capitalize())
-    remove_list.append('"' + remove_list[0] + '"')
-    remove_list.append('"' + remove_list[0].capitalize() + '"')
+    # Create a copy substring list stripped of punctuation
+    unwanted_punctuation = string.punctuation.replace("'", "")
+    stripped_list = []
+    for i in range(0, len(substring_list)):
+        stripped_list.append(
+            (
+                substring_list[i]
+                .translate(unwanted_punctuation.maketrans("", "", unwanted_punctuation))
+                .lower()
+            )
+        )
 
-    # Get replacement string from user.
-    # Add corresponding special cases for the remove list
-    replace_list = []
-    replace_list.append(input('What word do you want to replace? '))
-    replace_list.append(replace_list[0] + '.')
-    replace_list.append(replace_list[0] + '?')
-    replace_list.append(replace_list[0] + '!')
-    replace_list.append(replace_list[0] + '"')
-    replace_list.append(replace_list[0] + '."')
-    replace_list.append(replace_list[0].capitalize())
-    replace_list.append('"' + replace_list[0].capitalize())
-    replace_list.append('"' + replace_list[0] + '"')
-    replace_list.append('"' + replace_list[0].capitalize() + '"')
+    # Get the replaced and replacing words from the user
+    rem_word = input("What word would you like replaced? ")
+    rep_word = input(f"What word would you like to replace {rem_word} with? ")
+    rem_word, rep_word = rem_word.lower(), rep_word.lower()
 
-    # Nested loops to check all cases against all substrings from the text file contents
-    # Count how many replacements were made
+    # Find all indices in stripped list that match with the word to be removed
+    matching_indices = set()
+    for i in range(0, len(stripped_list)):
+        if stripped_list[i] == rem_word:
+            matching_indices.add(i)
+
+    # Replace the words at the matching indices
     replace_counter = 0
-    for i in range(0, len(remove_list)):
-        for j in range(0, len(substring_list)):
-            if substring_list[j] == remove_list[i]:
-                substring_list[j] = replace_list[i]
-                replace_counter += 1
-    
+    for i in matching_indices:
+        if rem_word in substring_list[i]:
+            substring_list[i] = substring_list[i].replace(rem_word, rep_word)
+        elif rem_word.capitalize() in substring_list[i]:
+            substring_list[i] = substring_list[i].replace(
+                rem_word.capitalize(), rep_word.capitalize()
+            )
+        elif rem_word.upper() in substring_list[i]:
+            substring_list[i] = substring_list[i].replace(
+                rem_word.upper(), rep_word.upper()
+            )
+        else:
+            continue
+        replace_counter += 1
+
     # If no changes made, return to main menu and do not output new file.
     if replace_counter == 0:
-        print('\nNo replacements were made! An output text file will not be created.')
-        input('Press enter to return to the main menu.')
+        print("\nNo replacements were made! An output text file will not be created.")
+        input("Press enter to return to the main menu.")
         return
 
     # Give feedback to the user on the replacements made.
     # Request a new file name to call the output text file
-    print(f'\n{replace_counter} replacement(s) were made!')
-    print('Your new file will be created in the outputs folder.')
-    new_file_name = input('What would you like to name your new file (exclude file extension): ') + ".txt"
+    print(f"\n{replace_counter} replacement(s) were made!")
+    print("Your new file will be created in the outputs folder.")
+    new_file_name = (
+        input("What would you like to name your new file (exclude file extension): ")
+        + ".txt"
+    )
 
     # Convert the substring list back into a string in order to pass to export function
     output_string = convert_list_to_string(substring_list)
@@ -81,5 +89,5 @@ def replace():
 
     # Give feedback to user that file has been successfully created.
     # Return to main menu
-    print(f'\n{new_file_name} has been successfully created!')
-    input('\nPress enter to return to the main menu.')
+    print(f"\n{new_file_name} has been successfully created!")
+    input("\nPress enter to return to the main menu.")
