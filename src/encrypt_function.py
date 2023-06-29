@@ -4,10 +4,6 @@ from clear_terminal import *
 from import_file import *
 from export_file import *
 
-# from Crypto.Cipher import XOR
-import base64
-
-
 def key_generator():
     key = ""
     for i in range(0, 8):
@@ -48,7 +44,8 @@ def encrypt():
         + ".txt"
     )
 
-    #
+    # Encrypt the input string
+    encrypted_string = ''
 
     # Call the export file function to create the output
     export_file(encrypted_string, new_file_name)
