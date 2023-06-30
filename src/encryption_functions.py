@@ -1,10 +1,9 @@
-import string
 from clear_terminal import *
 from import_file import *
 from export_file import *
-from cryptography.fernet import Fernet
+import string
 import base64
-import sys
+from cryptography.fernet import Fernet
 
 
 def password_check(password):
@@ -29,9 +28,11 @@ def password_check(password):
                 for char in password:
                     password_chars.update(char)
                 break
-    # Pad the remaining characters
+    # Pad the remaining characters with 0s
+    # Base64 encoding required for fernet object parameter
     password += "0" * (32 - len(password))
-    return password
+    password_base64_bytes = base64.b64encode(password.encode('ascii'))
+    return password_base64_bytes
 
 
 def encrypt():
@@ -56,18 +57,12 @@ def encrypt():
     # Call password_check to validate password and pad to 32 characters
     # Password needs to be base64 encoded for Fernet parameter
     pw_key = password_check(password)
-    pw_key = pw_key.encode('ascii')
-    pw_key_bytes = base64.b64encode(pw_key)
-    print(pw_key_bytes)
-    print(sys.getsizeof(pw_key_bytes))
-    input()
     
     # Create fernet object
-    fernet_object = Fernet(pw_key_bytes)
-    print('object_created')
+    fernet_object = Fernet(pw_key)
+
     # Encrypt text file contents
     encrypted_string = (fernet_object.encrypt(input_string.encode('ascii'))).decode()
-    print('encrypted string created')
 
     # Get new file name from user
     print("Your encrypted text file will be created in the outputs folder.")
@@ -75,6 +70,45 @@ def encrypt():
 
     # Call the export file function to create the output
     export_file(encrypted_string, new_file_name)
+
+    # Give feedback to user that file has been successfully created.
+    # Return to main menu
+    print(f"\n{new_file_name} has been successfully created!")
+    input("\nPress enter to return to the main menu.")
+
+
+def decrypt():
+    # Clear Terminal and show function name
+    clear_terminal()
+    print("####################################")
+    print("            DECRYPT FILE            ")
+    print("####################################\n")
+
+    # Import text file.
+    # Return to the main menu if no file was selected.
+    input_string = import_file()
+    if input_string == None:
+        return
+    
+    # Get decrypting password from user
+    password = input('Please enter your password that you used to encrypt this file: ')
+
+    # Call password_check to validate password and pad to 32 characters
+    # Password needs to be base64 encoded for Fernet parameter
+    pw_key = password_check(password)
+
+    # Create fernet object
+    fernet_object = Fernet(pw_key)
+
+    # Decrypt string imported from text file
+    output_string = (fernet_object.decrypt(input_string.encode('ascii'))).decode()
+
+    # Get new file name from user
+    print("Your decrypted text file will be created in the outputs folder.")
+    new_file_name = input("What would you like to name your new file (exclude file extension): ") + ".txt"
+
+    # Call the export file function to create the output
+    export_file(output_string, new_file_name)
 
     # Give feedback to user that file has been successfully created.
     # Return to main menu
