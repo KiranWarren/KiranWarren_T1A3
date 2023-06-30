@@ -9,7 +9,8 @@ python3 -m venv venv
 source venv/bin/activate
 
 # Install package requirements
-pip install -r requirements.txt
+pip3 install pytest
+pip3 install cryptography
 
 # Run 
 python3 main.py

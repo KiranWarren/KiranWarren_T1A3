@@ -1,1 +1,3 @@
-b'Hello world!\nSecond line.\nWho what when where why how?BIvBzHAN'
+Hello world!
+Second row.
+Who what when where why how?

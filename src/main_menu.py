@@ -1,7 +1,7 @@
 from clear_terminal import *
 
 def main_menu():
-    clear_terminal()
+    # clear_terminal()
     print("####################################")
     print(" TEXT FILE MANIPULATION APPLICATION ")
     print("####################################")
