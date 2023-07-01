@@ -11,3 +11,12 @@ def test_password():
         "abcdefghijklmnopqrstuvwxyz")
     output = intermediate_data.decode()
     assert output == 'YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXowMDAwMDA='
+
+
+def test_empty_password():
+    '''
+    This test will check that a valid password key is generated, even when an empty string is passed.
+    When passed an empty string "", it should return valid data.
+    '''
+    output = encryption_functions.password_check("")
+    assert output != None
