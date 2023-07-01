@@ -1,6 +1,8 @@
 '''
-This code is the main backbone of the Text Manipulation Application.
-Exiting the execution of this code will close the terminal application.
+Title: Text File Manipulation Application
+Created: July 2023
+Author: Kiran Warren
+Email: kiran.m.warren@gmail.com
 '''
 
 # Import modules.
