@@ -33,7 +33,7 @@ def password_check(password):
                 char_check = False
                 password = input(
                     "The password you entered contains invalid characters. Please try again: ")
-                password_chars = set()
+                password_chars.clear
                 for char in password:
                     password_chars.update(char)
                 break
@@ -72,10 +72,10 @@ def encrypt():
 
     # Call password_check to validate password and pad to 32 characters.
     # Password needs to be base64 encoded for Fernet parameter.
-    pw_key = password_check(password)
+    password_key = password_check(password)
 
     # Create Fernet object.
-    fernet_object = Fernet(pw_key)
+    fernet_object = Fernet(password_key)
 
     # Encrypt text file contents.
     encrypted_string = (fernet_object.encrypt(
