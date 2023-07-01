@@ -4,6 +4,7 @@
 if ! [[ "$(python3 --version)" =~ "Python 3" ]]
     then
         echo "Sorry, python3 command is not working. Please ensure you have Python 3 installed before using this application."
+        echo "Applicated closed."
         exit 0
 fi
 
@@ -11,6 +12,7 @@ fi
 if ! [[ "$(pip3 --version)" =~ "pip " ]]
     then
         echo "Sorry, pip3 command is not working. Please ensure you have PIP 3 installed before using this application."
+        echo "Applicated closed."
         exit 0
 fi
 
