@@ -1,28 +1,32 @@
-# Export File Function
-#
-# The string passed to this function will be written to the target text file.
-# The target text file will be created if it does not already exist, otherwise it will overwrite.
-
+# Import modules.
 import os
 
+
 def export_file(output_string, new_file_name):
-
+    '''
+    This function will take the passed output string and write it to a new text file.
+    The name of the new text file is specified in the second argument.
+    '''
     # Determine the file path.
-    outputs_file_path = os.path.join(os.path.join(os.path.dirname(__file__), "outputs"), new_file_name)
-
+    outputs_file_path = os.path.join(os.path.join(
+        os.path.dirname(__file__), "outputs"), new_file_name)
     # Write contents to file.
     with open(outputs_file_path, 'w') as file:
         file.write(output_string)
 
-def convert_list_to_string(substring_list, delimiter = " "):
-    output_string = ""
 
+def convert_list_to_string(substring_list, delimiter=" "):
+    '''
+    This function will take a list of substrings and convert it into a single string.
+    The substrings will be delimited by the second argument. Default value is a single space.
+    '''
+    output_string = ""
     # Convert passed list back into a string
     for i in range(0, len(substring_list)):
         output_string += substring_list[i]
         try:
             if substring_list[i] != "\n" and substring_list[i + 1] != "\n":
                 output_string += delimiter
-        except:
+        except BaseException:
             pass
     return output_string

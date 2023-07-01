@@ -1,13 +1,15 @@
-# Top Word Occurrences Function
-#
-# Find the top number of word occurrences in a specified text file.
-# Output displayed in console.
-
+# Import modules.
 from clear_terminal import *
 from import_file import *
 import string
 
+
 def top_occurrences():
+    '''
+    This function will determine the top occurring words within a .txt file.
+    The number of top occurring words is determined by the users.
+    Options are top 1, 3 and 10 word occurrences.
+    '''
     # Clear Terminal and show function name
     clear_terminal()
     print("####################################")
@@ -17,12 +19,13 @@ def top_occurrences():
     # Import text file.
     # Return to the main menu if no file was selected.
     input_string = import_file()
-    if input_string == None:
+    if input_string is None:
         return
-    
+
     # Strip string of punctuation and enforce lowercase.
     unwanted_punctuation = string.punctuation.replace("'", "")
-    stripped_string = input_string.translate(unwanted_punctuation.maketrans(unwanted_punctuation, len(unwanted_punctuation) * " ")).lower()
+    stripped_string = input_string.translate(unwanted_punctuation.maketrans(
+        unwanted_punctuation, len(unwanted_punctuation) * " ")).lower()
 
     # Convert the single string into a list of substrings.
     substring_list = convert_string_to_list(stripped_string)
@@ -49,10 +52,11 @@ def top_occurrences():
     print('\nPlease enter the option number in the console (1 - 3). Or enter anything else to return to the main menu.')
     try:
         option = int(input('\nOption: '))
-    except:
+    except BaseException:
         return
 
-    # Exit back to the main menu if user inputs an unexpected number. Get number of required top occurrences.
+    # Exit back to the main menu if user inputs an unexpected number. Get
+    # number of required top occurrences.
     if option in (1, 2, 3):
         if option == 1:
             occur_num = 1
@@ -72,6 +76,6 @@ def top_occurrences():
             top_word = max(occur_dict, key=occur_dict.get)
             print(f'[{i + 1}] {top_word} - {occur_dict[top_word]}')
             del occur_dict[top_word]
-        except:
+        except BaseException:
             break
     input('\nPress enter to return to the main menu.')

@@ -1,3 +1,9 @@
+'''
+This code is the main backbone of the Text Manipulation Application.
+Exiting the execution of this code will close the terminal application.
+'''
+
+# Import modules.
 from main_menu import *
 from replace_function import *
 from double_space_function import *
@@ -5,7 +11,6 @@ from encryption_functions import *
 from word_count_function import *
 from top_occurrences_function import *
 from occurrence_function import *
-
 
 while True:
     # Present application functions.
@@ -15,7 +20,7 @@ while True:
     # Handle empty string error, interpret as wanting to close application
     try:
         task = int(input("Enter selection: "))
-    except:
+    except BaseException:
         task = 0
 
     # Run functions based on user selection.

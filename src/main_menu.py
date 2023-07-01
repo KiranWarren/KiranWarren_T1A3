@@ -1,7 +1,11 @@
 from clear_terminal import *
 
+
 def main_menu():
-    # clear_terminal()
+    '''
+    This function displays all available functions for this application.
+    '''
+    clear_terminal()
     print("####################################")
     print(" TEXT FILE MANIPULATION APPLICATION ")
     print("####################################")

@@ -1,12 +1,13 @@
-# Word and Character Count Function
-#
-# Will display the word count and character count of a file specified by the user.
-# Output displayed in console.
-
+# Import modules.
 from clear_terminal import *
 from import_file import *
 
+
 def word_count():
+    '''
+    Finds the word and character count of a user-specified .txt file.
+    Output displayed in the console.
+    '''
     # Clear Terminal and show function name
     clear_terminal()
     print("####################################")
@@ -16,9 +17,9 @@ def word_count():
     # Import text file.
     # Return to the main menu if no file was selected.
     input_string = import_file()
-    if input_string == None:
+    if input_string is None:
         return
-    
+
     # Convert the single string into a list of substrings.
     substring_list = convert_string_to_list(input_string)
 

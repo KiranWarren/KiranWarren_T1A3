@@ -1,9 +1,4 @@
-# Replace Word Function
-#
-# This function will replace all instances of a word with another word, both specified by the user.
-# The name of the new text file will be specified by the user.
-# A new list of substrings will be created and passed to the export file function.
-
+# Import modules.
 from import_file import *
 from export_file import *
 from clear_terminal import *
@@ -11,6 +6,11 @@ import string
 
 
 def replace():
+    '''
+    This function will replace all instances of a word with another word, both specified by the user.
+    The name of the new text file will be specified by the user.
+    A new list of substrings will be created and passed to the export file function.
+    '''
     # Clear Terminal and show function name
     clear_terminal()
     print("####################################")

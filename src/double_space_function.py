@@ -1,14 +1,15 @@
-# Double Space Function
-#
-# Takes a specified text file and double spaces all words.
-# Outputs a new file with a user-specified name into the 'outputs' folder
-
+# Import Modules
 from clear_terminal import *
 from import_file import *
 from export_file import *
 
+
 def double_space():
-    # Clear Terminal and show function name
+    '''
+    This function get plain text from a specified .txt file.
+    The content will be double spaced and output to a new .txt file.
+    '''
+    # Present function name.
     clear_terminal()
     print("####################################")
     print("       DOUBLE-SPACE TEXT FILE       ")
@@ -17,18 +18,21 @@ def double_space():
     # Import text file.
     # Return to the main menu if no file was selected.
     input_string = import_file()
-    if input_string == None:
+    if input_string is None:
         return
-    
+
     # Convert the single string into a list of substrings.
     substring_list = convert_string_to_list(input_string)
 
     # Give confirmation to user that a new file will be created.
+    # Get output file name from user.
     print('\nYour text file contents will be double-spaced and written to a new file. The new file will created in the outputs folder.')
-    new_file_name = input('What would you like to name your new file (exclude file extension): ') + ".txt"
+    new_file_name = input(
+        'What would you like to name your new file (exclude file extension): ') + ".txt"
 
-    # Convert the substring list back into a string in order to pass to export function
-    # Pass the optional delimiter argument in order to double space the contents
+    # Convert the substring list back into a string in order to pass to export function.
+    # Pass the optional delimiter argument in order to double space the
+    # contents.
     output_string = convert_list_to_string(substring_list, "  ")
 
     # Call the export file function to create the output
@@ -38,4 +42,3 @@ def double_space():
     # Return to main menu
     print(f'\n{new_file_name} has been successfully created!')
     input('\nPress enter to return to the main menu.')
-
