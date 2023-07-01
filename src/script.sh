@@ -19,7 +19,6 @@ python3 -m venv venv
 source venv/bin/activate
 
 # Install package requirements into venv
-pip3 install pytest
 pip3 install cryptography
 
 # Run application
@@ -27,4 +26,4 @@ python3 main.py
 
 # Deactivate and remove virtual environment upon exiting application
 deactivate
-rm -rf venv
+rm -rf venv __pycache__
