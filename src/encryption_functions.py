@@ -17,12 +17,10 @@ def password_check(password):
     for char in password:
         password_chars.update(char)
     # Ensure the password is valid. Request again on invalid.
-    len_check = False
-    char_check = False
+    len_check, char_check = False
     valid_chars = string.ascii_letters + string.digits
     print(valid_chars)
     while len_check == False or char_check == False:
-        print(f'len {len_check}, char {char_check}')
         if len(password) > 32:
             password = input(
                 "The password you entered is longer than 32 characters. Please try again: ")
