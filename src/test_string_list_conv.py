@@ -1,6 +1,5 @@
 import export_file
 import import_file
-import pytest
 
 
 def test_str_to_list():

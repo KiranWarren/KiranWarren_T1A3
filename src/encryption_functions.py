@@ -118,10 +118,10 @@ def decrypt():
 
     # Call password_check to validate password and pad to 32 characters
     # Password needs to be base64 encoded for Fernet parameter
-    pw_key = password_check(password)
+    password_key = password_check(password)
 
     # Create fernet object
-    fernet_object = Fernet(pw_key)
+    fernet_object = Fernet(password_key)
 
     # Decrypt string imported from text file
     output_string = (fernet_object.decrypt(
