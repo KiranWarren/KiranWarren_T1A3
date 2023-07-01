@@ -5,6 +5,20 @@ from clear_terminal import *
 import string
 
 
+def strip_punctuation(substring_list):
+    unwanted_punctuation = string.punctuation.replace("'", "")
+    stripped_list = []
+    for i in range(0, len(substring_list)):
+        stripped_list.append(
+            (
+                substring_list[i]
+                .translate(unwanted_punctuation.maketrans("", "", unwanted_punctuation))
+                .lower()
+            )
+        )
+    return stripped_list
+
+
 def replace():
     '''
     This function will replace all instances of a word with another word, both specified by the user.
@@ -27,16 +41,7 @@ def replace():
     substring_list = convert_string_to_list(input_string)
 
     # Create a copy substring list stripped of punctuation
-    unwanted_punctuation = string.punctuation.replace("'", "")
-    stripped_list = []
-    for i in range(0, len(substring_list)):
-        stripped_list.append(
-            (
-                substring_list[i]
-                .translate(unwanted_punctuation.maketrans("", "", unwanted_punctuation))
-                .lower()
-            )
-        )
+    stripped_list = strip_punctuation(substring_list)
 
     # Get the replaced and replacing words from the user
     rem_word = input("What word would you like replaced? ")
