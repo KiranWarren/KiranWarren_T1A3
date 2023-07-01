@@ -20,7 +20,9 @@ def password_check(password):
     len_check = False
     char_check = False
     valid_chars = string.ascii_letters + string.digits
-    while len_check == False and char_check == False:
+    print(valid_chars)
+    while len_check == False or char_check == False:
+        print(f'len {len_check}, char {char_check}')
         if len(password) > 32:
             password = input(
                 "The password you entered is longer than 32 characters. Please try again: ")
@@ -30,12 +32,14 @@ def password_check(password):
             if char in valid_chars:
                 char_check = True
             else:
+                char_check = False
                 password = input(
                     "The password you entered contains invalid characters. Please try again: ")
                 password_chars = set()
                 for char in password:
                     password_chars.update(char)
                 break
+
     # Pad the remaining characters with 0s.
     # Base64 encoding required for fernet object parameter.
     password += "0" * (32 - len(password))
