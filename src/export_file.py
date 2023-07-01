@@ -11,8 +11,12 @@ def export_file(output_string, new_file_name):
     outputs_file_path = os.path.join(os.path.join(
         os.path.dirname(__file__), "outputs"), new_file_name)
     # Write contents to file.
-    with open(outputs_file_path, 'w') as file:
-        file.write(output_string)
+    # Error handling in case bad file name given by user
+    try:
+        with open(outputs_file_path, 'w') as file:
+            file.write(output_string)
+    except:
+        print("The file name you have entered is resulting in an error. It is likely that the characters you've included are not permitted by your OS.")
 
 
 def convert_list_to_string(substring_list, delimiter=" "):
