@@ -15,8 +15,27 @@ def test_password():
 
 def test_empty_password():
     '''
-    This test will check that a valid password key is generated, even when an empty string is passed.
-    When passed an empty string "", it should return valid data.
+    This test will check the helper function associated with the password check.
+    When passing an empty string, the function should return False to identify an invalid password.
     '''
-    output = encryption_functions.password_check("")
-    assert output != None
+    output = encryption_functions.check_password_empty("")
+    assert output == False
+
+
+def test_long_password():
+    '''
+    This test will check the helper function associated with the password check.
+    When passing a string that is 33 characters long, the function should return False to identify an invalid password.
+    '''
+    output = encryption_functions.check_password_length(
+        "111111111122222222223333333333444")
+    assert output == False
+
+
+def test_nonbase64_password():
+    '''
+    This test will check the helper function associated with the password check.
+    When passing a string containing an invalid character, the function should return False to identify an invalid password.
+    '''
+    output = encryption_functions.check_password_valid("abcdef>")
+    assert output == False
