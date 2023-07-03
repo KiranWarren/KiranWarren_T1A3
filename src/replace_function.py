@@ -37,6 +37,9 @@ def replace():
     if input_string == None:
         return
 
+    # Special case: Replace "/" with " / " so words on either side of slash do not get interpreted as a single word.
+    input_string = input_string.replace("/", " / ")
+
     # Convert the single string into a list of substrings
     substring_list = convert_string_to_list(input_string)
 
@@ -88,6 +91,9 @@ def replace():
 
     # Convert the substring list back into a string in order to pass to export function
     output_string = convert_list_to_string(substring_list)
+
+    # Rectify changes made for "/" special case.
+    output_string = output_string.replace(" / ", "/")
 
     # Call the export file function to create the output
     export_file(output_string, new_file_name)
