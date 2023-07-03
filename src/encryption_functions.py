@@ -7,36 +7,52 @@ from export_file import *
 from cryptography.fernet import Fernet
 
 
+def check_password_empty(password):
+    '''Helper function for password check. Will return true if password is not an empty string.'''
+    if len(password) == 0:
+        return False
+    return True
+
+
+def check_password_valid(password):
+    '''Helper function for password check. Will return true if password contains valids characters.'''
+    valid_chars = string.ascii_letters + string.digits
+    for char in password:
+        if char not in valid_chars:
+            return False
+    return True
+
+
+def check_password_length(password):
+    '''Helper function for password check. Will return true if password is 32 characters or less.'''
+    if len(password) > 32:
+        return False
+    return True
+
+
 def password_check(password):
     '''
     This function checks both the encrypting and decrypting password entered by the user.
-    The password must be 32 characters or less, and must only contain ascii letters and digits.
+    The password must be 1 to 32 characters in length, and must only contain ascii letters and digits.
     Once the password meets the requirements, it will be padded and base64 encoded before being returned.
     '''
     password_chars = set()
     for char in password:
         password_chars.update(char)
     # Ensure the password is valid. Request again on invalid.
-    len_check, char_check = False
-    valid_chars = string.ascii_letters + string.digits
-    print(valid_chars)
-    while len_check == False or char_check == False:
-        if len(password) > 32:
-            password = input(
-                "The password you entered is longer than 32 characters. Please try again: ")
-        else:
-            len_check = True
-        for char in password_chars:
-            if char in valid_chars:
-                char_check = True
-            else:
-                char_check = False
-                password = input(
-                    "The password you entered contains invalid characters. Please try again: ")
-                password_chars.clear
-                for char in password:
-                    password_chars.update(char)
-                break
+    len_check = False
+    char_check = False
+    empty_check = False
+
+    # Run while loop until a valid password is entered.
+    while True:
+        len_check = check_password_length(password)
+        char_check = check_password_valid(password)
+        empty_check = check_password_empty(password)
+        if len_check == True and char_check == True and empty_check == True:
+            break
+        print('Sorry, but that is not a valid password. Please input a password that is 1 to 32 characters in length, containing only letters and numbers.')
+        password = input('Password: ')
 
     # Pad the remaining characters with 0s.
     # Base64 encoding required for fernet object parameter.
@@ -67,7 +83,7 @@ def encrypt():
     # Get password from user.
     print("\nThis txt file will be symmetrically encrypted with a password of your choosing.")
     print("Please record your password somewhere safe, as you will need it to decrypt your file.")
-    print("Enter a password consisting of letters and digits (a-z A-Z 0-9), and is 32 characters or less.")
+    print("Enter a password consisting of letters and digits (a-z A-Z 0-9), and is 1 to 32 characters in length.")
     password = input("Password: ")
 
     # Call password_check to validate password and pad to 32 characters.
