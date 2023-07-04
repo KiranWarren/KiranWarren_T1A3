@@ -142,8 +142,14 @@ def decrypt():
     fernet_object = Fernet(password_key)
 
     # Decrypt string imported from text file
-    output_string = (fernet_object.decrypt(
-        input_string.encode('ascii'))).decode()
+    # Error handling in case of wrong password resulting in Fernet error
+    try:
+        output_string = (fernet_object.decrypt(
+            input_string.encode('ascii'))).decode()
+    except:
+        print('\nYou have entered the wrong password for this file!')
+        input("\nPress enter to return to the main menu.")
+        return
 
     # Get new file name from user.
     print("Your decrypted text file will be created in the outputs folder.")
