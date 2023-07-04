@@ -48,7 +48,7 @@ def replace():
 
     # Get the replaced and replacing words from the user
     rem_word = input("What word would you like replaced? ")
-    rep_word = input(f"What word would you like to replace {rem_word} with? ")
+    rep_word = input(f"What word would you like to replace '{rem_word}' with? ")
     rem_word, rep_word = rem_word.lower(), rep_word.lower()
 
     # Find all indices in stripped list that match with the word to be removed
