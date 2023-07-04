@@ -20,6 +20,11 @@ def word_count():
     if input_string is None:
         return
 
+    # Prevent '/' from holding words together.
+    # Compensate for increase in space count due to fix.
+    spaces_added = input_string.count("/")
+    input_string = input_string.replace("/", "/ ")
+
     # Convert the single string into a list of substrings.
     substring_list = convert_string_to_list(input_string)
 
@@ -33,7 +38,7 @@ def word_count():
             char_count_exc_space += len(substring_list[i])
         else:
             newline_count += 1
-    char_count_inc_space = len(input_string) - newline_count
+    char_count_inc_space = len(input_string) - newline_count - spaces_added
 
     # Provide user feedback on calculations
     print('\nYour text file has been analysed. The results are below.')
