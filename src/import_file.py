@@ -18,8 +18,11 @@ def import_file():
 
     # Remove non-.txt files from file_list.
     for i in range(0, len(file_list)):
-        if file_list[i][-4:] != ".txt":
-            file_list.remove(file_list[i])
+        try:
+            if file_list[i][-4:] != ".txt":
+                file_list.remove(file_list[i])
+        except:
+            break
 
     # If no relevant files are in the 'inputs' folder, exit to main menu.
     if len(file_list) == 0:
