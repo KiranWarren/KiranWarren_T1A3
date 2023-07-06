@@ -46,6 +46,7 @@
     - [6.4.8 Top Word Occurrences](./README.md#648-top-word-occurrences)
     - [6.4.9 Word Occurrence](./README.md#649-word-occurrence)
     - [6.4.10 Exiting the Application](/README.md#6410-exiting-the-application)
+- [References](/README.md#references)
 
 ## 1 Github Link
 
@@ -277,6 +278,7 @@ A link to the implementation plan can be found here: [Trello link for T1A3](http
 
 - Desktop or laptop PC
 - Recommended <5 years old
+- Internet connection is required
 
 #### 6.1.3 Required Software
 
@@ -382,22 +384,15 @@ The encrypt text file function will encrypt the contents of your .txt file. A ne
 1. Enter '3' and press enter on the main menu to enter the encrypt text file function.
 2. Choose the text file you want to import by inputting the corresponding option number into the terminal and pressing enter. To return to the main menu, enter anything else.
 
-> Here are all the .txt files in the inputs folder: <br> [1] example-file.txt<br> [2] text-file.txt<br> [3] short-story.txt<br> <br>
-> Which file would you like to choose? In the console, input the corresponding number of the file you want to import.<br>
-> Or press enter to return to the main menu.<br> <br>
-> File number:
+![Encrypt - Import](./docs/encrypt-import.png)
 
 3. Input the password you want to lock this encrypted file with and press enter. The password you enter must consist of uppercase letters, lowercase letters or numbers only (i.e. A-Z, a-z, 0-9). If you enter an invalid password, you will be requested again to input a valid password. Important: Please record your password somewhere private! This password is required to decrypt the encrypted .txt file.
 
-> This txt file will be symmetrically encrypted with a password of your choosing.<br>
-> Please record your password somewhere safe, as you will need it to decrypt your file.<br>
-> Enter a password consisting of letters and digits (a-z A-Z 0-9), and is 1 to 32 characters in length.<br>
-> Password:
+![Encrypt - Password](./docs/encrypt-pw.png)
 
 4. Specify your new file name and press enter. Do not include the file extension as this will be handled by the application.
 
-> Your encrypted text file will be created in the outputs folder.<br>
-> What would you like to name your new file (exclude file extension):
+![Encrypt - Filename](./docs/encrypt-filename.png)
 
 5. Your new text file will be created in the 'outputs' folder. Keep in my that the original, unencrypted .txt file will still exist in the 'inputs' folder.
 
@@ -408,21 +403,15 @@ The decrypt text file function will decrypt any files that were encrypted by the
 1. Enter '4' and press enter on the main menu to enter the decrypt text file function.
 2. Choose the text file you want to import by inputting the corresponding option number into the terminal and pressing enter. To return to the main menu, enter anything else.
 
-> Here are all the .txt files in the inputs folder: <br> [1] example-file.txt<br> [2] text-file.txt<br> [3] short-story.txt<br> <br>
-> Which file would you like to choose? In the console, input the corresponding number of the file you want to import.<br>
-> Or press enter to return to the main menu.<br> <br>
-> File number:
+![Decrypt - Import](./docs/decrypt-import.png)
 
 3. Input the password that was used to encrypt this file.
 
-> This txt file will be symmetrically encrypted with a password of your choosing.<br>
-> Please record your password somewhere safe, as you will need it to decrypt your file.<br>
-> Enter a password consisting of letters and digits (a-z A-Z 0-9), and is 1 to 32 characters in length.<br>
-> Password:
+![Decrypt - Password](./docs/decrypt-pw.png)
 
 4. Specify your new file name and press enter. Do not include the file extension as this will be handled by the application.
 
-_screenshot of filename_
+![Decrypt - Filename](./docs/decrypt-filename.png)
 
 5. Your new text file will be created in the 'outputs' folder.
 
@@ -433,11 +422,11 @@ The word and character count function will determine how many words and characte
 1. Enter '5' and press enter on the main menu to enter the word/character count function.
 2. Choose the text file you want to import by inputting the corresponding option number into the terminal and pressing enter. To return to the main menu, enter anything else.
 
-_screenshot of import file_
+![Word/Char Count - Import](./docs/word-count-import.png)
 
 3. Results will be shown in the terminal, e.g.:
 
-_screenshot of results_
+![Word/Char Count - Output](./docs/word-count-output.png)
 
 #### 6.4.8 Top Word Occurrences
 
@@ -446,15 +435,15 @@ The top word occurrences function will find the most frequently used words withi
 1. Enter '6' and press enter on the main menu to enter the top word occurrences function.
 2. Choose the text file you want to import by inputting the corresponding option number into the terminal and pressing enter. To return to the main menu, enter anything else.
 
-_screenshot of import file_
+![Top Words - Import](./docs/top-words-import.png)
 
 3. Choose the number of most frequently occurring words you would like to see. Input the corresponding number into the terminal and press enter.
 
-_screenshot of selection_
+![Top Words - Selection](./docs/top-words-selection.png)
 
 4. Results will be shown in the terminal, e.g.:
 
-_screenshot of results_
+![Top Words - Output](./docs/top-words-output.png)
 
 #### 6.4.9 Word Occurrence
 
@@ -463,16 +452,20 @@ The word occurrence function will determine how many times a word of your choosi
 1. Enter '7' and press enter on the main menu to enter the word occurrence function.
 2. Choose the text file you want to import by inputting the corresponding option number into the terminal and pressing enter. To return to the main menu, enter anything else.
 
-_screenshot of import file_
+![Word Occurrence - Import](./docs/word-occur-import.png)
 
 3. Input the word you would like analysed and press enter:
 
-_screenshot of chosen word_
+![Word Occurrence - Choice](./docs/word-occur-choice.png)
 
 4. Result will be shown in the terminal, e.g.:
 
-_screenshot of results_
+![Word Occurrence - Output](./docs/word-occur-output.png)
 
 #### 6.4.10 Exiting the Application
 
 1. To exit the application, press enter in the terminal while in the main menu (without any other input).
+
+## References
+
+- refernece
