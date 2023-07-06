@@ -13,18 +13,39 @@
 - [3 Code Styling Convention](./README.md#3-code-styling-convention)
 - [4 Application Features](./README.md#4-application-features)
   - [4.1 Replace Word Function](./README.md#41-replace-word-function)
+    - [4.1.1 Example of Replace Function Output](./README.md#411-example-of-replace-function-output)
   - [4.2 Double Space Function](./README.md#42-double-space-function)
+    - [4.2.1 Example of Double Space Function Output](./README.md#421-example-of-double-space-function-output)
   - [4.3 Encrypt Text File](./README.md#43-encrypt-text-file)
+    - [4.3.1 Example of Encrypt File Output](./README.md#431-example-of-encrypt-file-output)
   - [4.4 Decrypt Text File](./README.md#44-decrypt-text-file)
+    - [4.4.1 Example of Decrypt File Output](./README.md#441-example-of-decrypt-file-output)
   - [4.5 Word/Character Count](./README.md#45-wordcharacter-count)
+    - [4.5.1 Example of Word/Character Count Output](./README.md#451-example-of-wordcharacter-count-output)
   - [4.6 Top Occurring Words](./README.md#46-top-occurring-words)
+    - [4.6.1 Example of Top Word Occurrences Output](./README.md#461-example-of-top-word-occurrences-output)
   - [4.7 Occurrence of Specified Word](./README.md#47-occurrence-of-specified-word)
+    - [4.7.1 Example of Replace Function Output](./README.md#471-example-of-word-occurrence-output)
 - [5 Implementation Plan](./README.md#5-implementation-plan)
 - [6 Help Documentation](./README.md#6-help-documentation)
-  - [6.1 System Requirements](./README.md#61-system-requirements)
-  - [6.2 Software Requirements](./README.md#62-software-requirements)
-  - [6.3 How to Install Application](./README.md#63-how-to-install-application)
+  - [6.1 Requirements](./readme#61-requirements)
+    - [6.1.1 Recommended Operating System](./readme#611-recommended-operating-system)
+    - [6.1.2 Hardware Requirements](./README.md#612-hardware-requirements)
+    - [6.1.3 Required Software](./README.md#613-required-software)
+    - [6.1.4 Software Dependencies](./README.md#614-software-dependencies)
+  - [6.2 How to Install Application](./README.md#62-how-to-install-application)
+  - [6.3 How to Run Application](./README.md#63-how-to-run-application)
   - [6.4 How to Use Application](./README.md#64-how-to-use-application)
+    - [6.4.1 General](./README.md#641-general)
+    - [6.4.2 Main Menu](./README.md#642-main-menu)
+    - [6.4.3 Replace Function](./README.md#643-replace-function)
+    - [6.4.4 Double Space Function](./README.md#644-double-space-function)
+    - [6.4.5 Encrypt Text File](./README.md#645-encrypt-text-file)
+    - [6.4.6 Decrypt Text File](./README.md#646-decrypt-text-file)
+    - [6.4.7 Word/Character Count](./README.md#647-wordcharacter-count)
+    - [6.4.8 Top Word Occurrences](./README.md#648-top-word-occurrences)
+    - [6.4.9 Word Occurrence](./README.md#649-word-occurrence)
+    - [6.4.10 Exiting the Application](/README.md#6410-exiting-the-application)
 
 ## 1 Github Link
 
@@ -197,7 +218,7 @@ The user will be requested to give two inputs:
 This function works by reading the content of the specified file and splitting it up into a list of substrings using the split method with the default delimiter. Punctuation must be removed and letter case must be forced lower in order for the matching algorithm to effectively match. Each word from the substring list is added to a dictionary with value = 1, and if it already exists, then the value is increased by one.
 The top occurring words can then be found by finding the max value in a dictionary for however many times the user has specified. In order to use the max function repeatedly, the highest key:value pair must be removed from the dictionary after it is printed to the console. This allows the next highest value to become the dictionary's max value.
 
-#### 4.6.1 Example of Top Occurrences Output
+#### 4.6.1 Example of Top Word Occurrences Output
 
 Input text in text file:
 
@@ -218,7 +239,7 @@ The user will be requested to give two inputs:
 
 This function uses the same logic as the top occurring words function, however, instead of printing the max value(s) from the dictionary, only the value for the key specified by the user will be displayed.
 
-#### 4.6.1 Example of Word Occurrence Output
+#### 4.7.1 Example of Word Occurrence Output
 
 Input text in text file:
 
@@ -244,18 +265,214 @@ A link to the implementation plan can be found here: [Trello link for T1A3](http
 
 ## 6 Help Documentation
 
-### 6.1 System Requirements
+### 6.1 Requirements
 
-pass
+#### 6.1.1 Recommended Operating System
 
-### 6.2 Software Requirements
+- Windows 10 or newer, using Windows Subsystem for Linux (WSL)
+- MAC OS 11 or newer
+- Linux Ubuntu
 
-pass
+#### 6.1.2 Hardware Requirements
 
-### 6.3 How to Install Application
+- Desktop or laptop PC
+- Recommended <5 years old
 
-pass
+#### 6.1.3 Required Software
+
+- Terminal with bash shell
+- Python 3.9 or later (latest version recommended)
+- pip 20 or later (installed with Python 3 by default)
+
+#### 6.1.4 Software Dependencies
+
+- Python module: os
+- Python module: platform
+- Python module: base64
+- Python module: string
+- Python module: cryptography (pip install required, handled by application)
+- Python module: pytest (pip install required, handled by application)
+
+### 6.2 How to Install Application
+
+1. Download .zip file 'KiranWarren_T1A3.zip'.
+2. Unzip the contents of 'KiranWarren_T1A3.zip' to a directory of your choosing.
+
+### 6.3 How to Run Application
+
+1. Open a bash terminal session.
+2. Change your working directory to the '/src' folder within '/KiranWarren_T1A3'. For example:
+
+> /Users/kiran/Documents/Projects/KiranWarren_T1A3/src
+
+3. Run the 'text_app.sh' script using the bash command. For example:
+
+> bash text_app.sh
+
+4. The text manipulation application should run within your terminal session.
+
+(Optional Troubleshooting) Running the script with the explicit bash command should circumvent file permissions. However, if you receive a permission error when trying to run the script, try running the following command to change this script's permissions to executable before retrying step 3:
+
+> chmod -x text_app.sh
 
 ### 6.4 How to Use Application
 
-pass
+#### 6.4.1 General
+
+Functions within this application must be used in conjunction with your .txt files. Before running the application, ensure that the text files you want to manipulate/analyse are stored in the 'inputs' folder in the src directory, i.e.:
+
+> .../KiranWarren_T1A3/src/inputs
+
+When new .txt files are created, they will be created within the outputs folder within the src directory:
+
+> .../KiranWarren_T1A3/src/outputs
+
+The output will automatically overwrite any files in the output folder with the same name, please keep this in mind when inputting new file names.
+
+The functions of this application were designed to be used on prose (i.e. grammatically correct sentences & paragraphs). Manipulating irregular file contents may produce unusual results.
+
+#### 6.4.2 Main Menu
+
+1. The main menu provides all available functions. To use one of these functions, input the corresponding option number into the terminal and press enter. Inputting anything else will exit the application.
+
+![Main Menu](./docs/main-menu.png)
+
+#### 6.4.3 Replace Function
+
+The replace function is used to replace all instances of a specified word within a text file with another word of your choosing. A new text file will be created with your output in the 'outputs' folder with the new file name of your choosing.
+
+1. Enter '1' and press enter on the main menu to enter the replace function.
+2. Choose the text file you want to import by inputting the corresponding option number into the terminal and pressing enter. To return to the main menu, enter anything else.
+
+![Replace - Import](./docs/replace-import.png)
+
+3. Input the word you want to replace and press enter.
+
+![Replace - Replace Word](./docs/replace-replace.png)
+
+4. Input the word you want to use as a replacement and press enter.
+
+![Replace - Replacement Word](./docs/replace-replacement.png)
+
+5. Specify your new file name and press enter. Do not include the file extension as this will be handled by the application.
+
+![Replace - Filename](./docs/replace-filename.png)
+
+6. Your new text file will be created in the 'outputs' folder.
+
+#### 6.4.4 Double Space Function
+
+The double space function will place two spaces between words in your .txt file. A new text file will be created with your output in the 'outputs' folder with the new file name of your choosing.
+
+1. Enter '2' and press enter on the main menu to enter the double space function.
+2. Choose the text file you want to import by inputting the corresponding option number into the terminal and pressing enter. To return to the main menu, enter anything else.
+
+![Double Space - Import](./docs/double-space-import.png)
+
+3. Specify your new file name and press enter. Do not include the file extension as this will be handled by the application.
+
+![Double Space - Filename](./docs/double-space-filename.png)
+
+4. Your new text file will be created in the 'outputs' folder.
+
+#### 6.4.5 Encrypt Text File
+
+The encrypt text file function will encrypt the contents of your .txt file. A new (encrypted) text file will be created with your output in the 'outputs' folder with the new file name of your choosing.
+
+1. Enter '3' and press enter on the main menu to enter the encrypt text file function.
+2. Choose the text file you want to import by inputting the corresponding option number into the terminal and pressing enter. To return to the main menu, enter anything else.
+
+> Here are all the .txt files in the inputs folder: <br> [1] example-file.txt<br> [2] text-file.txt<br> [3] short-story.txt<br> <br>
+> Which file would you like to choose? In the console, input the corresponding number of the file you want to import.<br>
+> Or press enter to return to the main menu.<br> <br>
+> File number:
+
+3. Input the password you want to lock this encrypted file with and press enter. The password you enter must consist of uppercase letters, lowercase letters or numbers only (i.e. A-Z, a-z, 0-9). If you enter an invalid password, you will be requested again to input a valid password. Important: Please record your password somewhere private! This password is required to decrypt the encrypted .txt file.
+
+> This txt file will be symmetrically encrypted with a password of your choosing.<br>
+> Please record your password somewhere safe, as you will need it to decrypt your file.<br>
+> Enter a password consisting of letters and digits (a-z A-Z 0-9), and is 1 to 32 characters in length.<br>
+> Password:
+
+4. Specify your new file name and press enter. Do not include the file extension as this will be handled by the application.
+
+> Your encrypted text file will be created in the outputs folder.<br>
+> What would you like to name your new file (exclude file extension):
+
+5. Your new text file will be created in the 'outputs' folder. Keep in my that the original, unencrypted .txt file will still exist in the 'inputs' folder.
+
+#### 6.4.6 Decrypt Text File
+
+The decrypt text file function will decrypt any files that were encrypted by the encrypt text file function. You must use the same password that was used to lock the file. A new (decrypted) text file will be created with your output in the 'outputs' folder with the new file name of your choosing.
+
+1. Enter '4' and press enter on the main menu to enter the decrypt text file function.
+2. Choose the text file you want to import by inputting the corresponding option number into the terminal and pressing enter. To return to the main menu, enter anything else.
+
+> Here are all the .txt files in the inputs folder: <br> [1] example-file.txt<br> [2] text-file.txt<br> [3] short-story.txt<br> <br>
+> Which file would you like to choose? In the console, input the corresponding number of the file you want to import.<br>
+> Or press enter to return to the main menu.<br> <br>
+> File number:
+
+3. Input the password that was used to encrypt this file.
+
+> This txt file will be symmetrically encrypted with a password of your choosing.<br>
+> Please record your password somewhere safe, as you will need it to decrypt your file.<br>
+> Enter a password consisting of letters and digits (a-z A-Z 0-9), and is 1 to 32 characters in length.<br>
+> Password:
+
+4. Specify your new file name and press enter. Do not include the file extension as this will be handled by the application.
+
+_screenshot of filename_
+
+5. Your new text file will be created in the 'outputs' folder.
+
+#### 6.4.7 Word/Character Count
+
+The word and character count function will determine how many words and characters (including and excluding spaces) are in the .txt file you specify. The results will be printed to the terminal.
+
+1. Enter '5' and press enter on the main menu to enter the word/character count function.
+2. Choose the text file you want to import by inputting the corresponding option number into the terminal and pressing enter. To return to the main menu, enter anything else.
+
+_screenshot of import file_
+
+3. Results will be shown in the terminal, e.g.:
+
+_screenshot of results_
+
+#### 6.4.8 Top Word Occurrences
+
+The top word occurrences function will find the most frequently used words within a .txt file you specify. You have the option to see the top 1, top 3 or top 10 most frequently used words. The results will be printed to the terminal.
+
+1. Enter '6' and press enter on the main menu to enter the top word occurrences function.
+2. Choose the text file you want to import by inputting the corresponding option number into the terminal and pressing enter. To return to the main menu, enter anything else.
+
+_screenshot of import file_
+
+3. Choose the number of most frequently occurring words you would like to see. Input the corresponding number into the terminal and press enter.
+
+_screenshot of selection_
+
+4. Results will be shown in the terminal, e.g.:
+
+_screenshot of results_
+
+#### 6.4.9 Word Occurrence
+
+The word occurrence function will determine how many times a word of your choosing occurs within a specified .txt file. The results will be printed to the terminal.
+
+1. Enter '7' and press enter on the main menu to enter the word occurrence function.
+2. Choose the text file you want to import by inputting the corresponding option number into the terminal and pressing enter. To return to the main menu, enter anything else.
+
+_screenshot of import file_
+
+3. Input the word you would like analysed and press enter:
+
+_screenshot of chosen word_
+
+4. Result will be shown in the terminal, e.g.:
+
+_screenshot of results_
+
+#### 6.4.10 Exiting the Application
+
+1. To exit the application, press enter in the terminal while in the main menu (without any other input).
