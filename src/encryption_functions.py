@@ -51,7 +51,7 @@ def password_check(password):
         empty_check = check_password_empty(password)
         if len_check == True and char_check == True and empty_check == True:
             break
-        print('Sorry, but that is not a valid password. Please input a password that is 1 to 32 characters in length, containing only letters and numbers.')
+        print('\nSorry, but that is not a valid password. Please input a password that is 1 to 32 characters in length, containing only letters and numbers.')
         password = input('Password: ')
 
     # Pad the remaining characters with 0s.
@@ -98,7 +98,7 @@ def encrypt():
         input_string.encode('ascii'))).decode()
 
     # Get new file name from user.
-    print("Your encrypted text file will be created in the outputs folder.")
+    print("\nYour encrypted text file will be created in the outputs folder.")
     new_file_name = input(
         "What would you like to name your new file (exclude file extension): ") + ".txt"
 
@@ -152,7 +152,7 @@ def decrypt():
         return
 
     # Get new file name from user.
-    print("Your decrypted text file will be created in the outputs folder.")
+    print("\nYour decrypted text file will be created in the outputs folder.")
     new_file_name = input(
         "What would you like to name your new file (exclude file extension): ") + ".txt"
 
