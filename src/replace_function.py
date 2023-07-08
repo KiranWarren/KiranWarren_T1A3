@@ -10,12 +10,9 @@ def strip_punctuation(substring_list):
     stripped_list = []
     for i in range(0, len(substring_list)):
         stripped_list.append(
-            (
-                substring_list[i]
-                .translate(unwanted_punctuation.maketrans("", "", unwanted_punctuation))
-                .lower()
-            )
-        )
+            (substring_list[i] .translate(
+                unwanted_punctuation.maketrans(
+                    "", "", unwanted_punctuation)) .lower()))
     return stripped_list
 
 
@@ -34,10 +31,11 @@ def replace():
     # Import text file
     # Return to the main menu if no file was selected
     input_string = import_file()
-    if input_string == None:
+    if input_string is None:
         return
 
-    # Special case: Replace "/" with " / " so words on either side of slash do not get interpreted as a single word.
+    # Special case: Replace "/" with " / " so words on either side of slash do
+    # not get interpreted as a single word.
     input_string = input_string.replace("/", " / ")
 
     # Convert the single string into a list of substrings
@@ -48,7 +46,8 @@ def replace():
 
     # Get the replaced and replacing words from the user
     rem_word = input("What word would you like replaced? ")
-    rep_word = input(f"What word would you like to replace '{rem_word}' with? ")
+    rep_word = input(
+        f"What word would you like to replace '{rem_word}' with? ")
     rem_word, rep_word = rem_word.lower(), rep_word.lower()
 
     # Find all indices in stripped list that match with the word to be removed
@@ -85,11 +84,11 @@ def replace():
     print(f"\n{replace_counter} replacement(s) were made!")
     print("Your new file will be created in the outputs folder.")
     new_file_name = (
-        input("What would you like to name your new file (exclude file extension): ")
-        + ".txt"
-    )
+        input("What would you like to name your new file (exclude file extension): ") +
+        ".txt")
 
-    # Convert the substring list back into a string in order to pass to export function
+    # Convert the substring list back into a string in order to pass to export
+    # function
     output_string = convert_list_to_string(substring_list)
 
     # Rectify changes made for "/" special case.
