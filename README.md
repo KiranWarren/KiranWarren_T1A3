@@ -54,7 +54,7 @@
 
 ## 2 Youtube Video Link
 
-[YouTube Video Link for T1A3]()
+[YouTube Video Link for T1A3](https://youtu.be/iP7aFJyvFbo)
 
 ## 3 Code Styling Convention
 
@@ -468,4 +468,10 @@ The word occurrence function will determine how many times a word of your choosi
 
 ## References
 
-- refernece
+- "Python Read Text File", **Python Tutorial**, accessed 27 June 2023, <<https://www.pythontutorial.net/python-basics/python-read-text-file>>.
+- "Python List Files in a Directory", **PYnative**, accessed 27 June 2023, <<https://www.pynative.com/python-list-files-in-a-directory>>.
+- "PEP 8 - Style Guide for Python Code", **Python**, accessed 27 June 2023, <<https://peps.python.org/pep-0008>>.
+- "Welcome to pyca/cryptography", **Cryptography.io**, accessed 30 June 2023, <<https://cryptography.io/en/latest>>.
+- "Text File Image", **Freepik**, **Flaticon**, <<https://www.flaticon.com/free-icon/txt-file_3979306?term=txt+file&page=1&position=18&origin=search&related_id=3979306>>.
+- "Gears Image", **Bekris**, **Flaticon**, <<https://www.flaticon.com/free-icon/engineering_3079162?term=gears&page=1&position=11&origin=search&related_id=3079162>>.
+- R. Wijaya, "Terminal Image", **Flaticon**, <<https://www.flaticon.com/free-icon/terminal_7560719?term=terminal&page=1&position=7&origin=search&related_id=7560719>>.
