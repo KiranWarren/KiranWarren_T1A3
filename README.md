@@ -26,6 +26,7 @@
     - [4.6.1 Example of Top Word Occurrences Output](./README.md#461-example-of-top-word-occurrences-output)
   - [4.7 Occurrence of Specified Word](./README.md#47-occurrence-of-specified-word)
     - [4.7.1 Example of Replace Function Output](./README.md#471-example-of-word-occurrence-output)
+  - [4.8 Code Structure](./README.md#48-code-structure)
 - [5 Implementation Plan](./README.md#5-implementation-plan)
 - [6 Help Documentation](./README.md#6-help-documentation)
   - [6.1 Requirements](./readme#61-requirements)
@@ -253,6 +254,40 @@ User input into the console, specifying what word to count:
 Output in the console, with the user choosing option 1 (top 1 word occurrence):
 
 > The word "dinner" occurs 1 time(s) in the txt file.
+
+### 4.8 Code Structure
+
+The code consists of the following files and their functions defined within:
+
+- clear_terminal.py
+  - clear_terminal() - This function clears all text from the terminal window.
+- double_space_function.py
+  - double_space() - Double spaces plain text file contents.
+- encryption_functions.py
+  - check_password_empty(password) - This function checks if a user entered a blank password.
+  - check_password_valid(password) - This function checks if a user used invalid characters for their password.
+  - check_password_length(password) - This function checks if a user entered a password longer than 32 characters.
+  - password_check(password) - This function (with the use of the smaller check password functions) ensures that the password the user gives is valid. It will also pad the password to 32 characters and encode it.
+  - encrypt() - This function encrypts the contents of a plain text file with Fernet symmetrical encryption.
+  - decryrpt() - This function will decrypt a plain text file that has been encrypted by the encrypt() function.
+- export_file.py
+  - export_file(output_string, new_file_name) - This function will write the output contents to a new file created in the 'outputs' folder.
+  - convert_list_to_string(substring_list, delimiter) - This function will create an output string from a list of substrings. Default delimiter is a single space.
+- import_file.py
+  - import_file() - This function will give the user a list of plain text files that are within the 'inputs' folder. The chosen file will have its contents read and saved to a string that will be returned.
+  - convert_string_to_list(input_string) - This function will convert an imported string into a list of substrings.
+- main_menu.py
+  - main_menu() - Provides the user a list of the applications functions.
+- main.py - This is the backbone of the application that will call other functions based on user input.
+- occurrence_function.py
+  - This function will determine the number of times a user-specified word occurs within a plain text file.
+- replace_function.py
+  - strip_punctuation(substring_list) - This function will remove punctuation from a list of substrings. It will also force all uppercase letters to lowercase.
+  - replace() - This function will replace all instances of a user-specified word with another word.
+- top_occurrences_function.py
+  - top_occurrences() - This function determines the most frequently used words within a plain text file.
+- word_count_function.py
+  - word_count() - This function determines the number of words and characters within a plain text file.
 
 ## 5 Implementation Plan
 
