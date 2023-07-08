@@ -21,7 +21,7 @@ def import_file():
         try:
             if file_list[i][-4:] != ".txt":
                 file_list.remove(file_list[i])
-        except:
+        except BaseException:
             break
 
     # If no relevant files are in the 'inputs' folder, exit to main menu.
