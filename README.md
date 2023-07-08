@@ -47,6 +47,7 @@
     - [6.4.8 Top Word Occurrences](./README.md#648-top-word-occurrences)
     - [6.4.9 Word Occurrence](./README.md#649-word-occurrence)
     - [6.4.10 Exiting the Application](/README.md#6410-exiting-the-application)
+  - [6.5 (For Developers) How to Test Application](./README.md#65-for-developers-how-to-test-application)
 - [References](/README.md#references)
 
 ## 1 Github Link
@@ -500,6 +501,31 @@ The word occurrence function will determine how many times a word of your choosi
 #### 6.4.10 Exiting the Application
 
 1. To exit the application, press enter in the terminal while in the main menu (without any other input).
+
+### 6.5 (For Developers) How to Test Application
+
+1. Open a bash terminal session.
+2. Change your working directory to the '/src' folder within '/KiranWarren_T1A3'. For example:
+
+> /Users/kiran/Documents/Projects/KiranWarren_T1A3/src
+
+3. Run the 'test_text_app.sh' script using the bash command. For example:
+
+> bash test_text_app.sh
+
+This script will call Pytest, which will run all test function created in the src directory. The tests have been created are:
+
+- test_password_check.py
+  - test_password() - Checks for an expected result from the password_check function when given a certain input.
+  - test_empty_password() - Checks that the check_password_empty function is correctly identifying invalid password input.
+  - test_long_password() - Checks that the check_password_length function is correctly identifying invalid password input.
+  - test_nonbase64_password() - Checks that the check_password_valid function is correctly identifying invalid password input.
+- test_punc_stripping.py
+  - test_punc_stripping() - Tests whether the strip_punctuation function is removing all punctuation and forcing lowercase on a substring list.
+- test_string_list_conv.py
+  - test_str_to_list() - Tests that the convert_string_to_list function is correctly converting a string to a substring list.
+  - test_list_to_str() - Tests that the convert_list_to_string function is correctly converting a list of substrings into a single string.
+  - test_full_conversion() - An string is converted to list then back again using the convert_string_to_list and convert_list_to_string functions. The input string should be equivalent to the output.
 
 ## References
 
