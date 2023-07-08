@@ -49,7 +49,7 @@ def password_check(password):
         len_check = check_password_length(password)
         char_check = check_password_valid(password)
         empty_check = check_password_empty(password)
-        if len_check == True and char_check == True and empty_check == True:
+        if len_check and char_check and empty_check:
             break
         print('\nSorry, but that is not a valid password. Please input a password that is 1 to 32 characters in length, containing only letters and numbers.')
         password = input('Password: ')
@@ -146,7 +146,7 @@ def decrypt():
     try:
         output_string = (fernet_object.decrypt(
             input_string.encode('ascii'))).decode()
-    except:
+    except BaseException:
         print('\nYou have entered the wrong password for this file!')
         input("\nPress enter to return to the main menu.")
         return
