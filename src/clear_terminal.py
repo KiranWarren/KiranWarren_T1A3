@@ -1,7 +1,3 @@
-# Clear Terminal Function
-#
-# This function clears the current contents of the terminal.
-
 # Import modules
 import os
 import platform
