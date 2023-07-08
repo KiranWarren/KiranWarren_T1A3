@@ -15,7 +15,7 @@ def export_file(output_string, new_file_name):
     try:
         with open(outputs_file_path, 'w') as file:
             file.write(output_string)
-    except:
+    except BaseException:
         print("The file name you have entered is resulting in an error. It is likely that the characters you've included are not permitted by your OS.")
 
 
